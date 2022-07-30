@@ -40,10 +40,11 @@ mysql_server() {
 mysql_workbench() {
 
 	step "===== Create mysql_workbench ====="
-	wget https://dev.mysql.com/get/mysql-apt-config_0.8.23-1_all.deb
-	sudo apt install -y ./mysql-apt-config_0.8.23-1_all.deb
-	sudo apt update
 	sudo snap install mysql-workbench-community
+	#wget https://dev.mysql.com/get/mysql-apt-config_0.8.23-1_all.deb
+	#sudo apt install -y ./mysql-apt-config_0.8.23-1_all.deb
+	#sudo apt update
+
 	# https://blockdev.io/mysql-workbench-ubuntu-20-04-and-app-armor/
 	sudo snap connect mysql-workbench-community:password-manager-service :password-manager-service
 }
@@ -54,12 +55,12 @@ vnc_server() {
 
   sudo apt update && sudo apt install -y xfce4 xfce4-goodies && sudo apt install tightvncserver
 
-  cat > ~vagrant/xstartup <<_EOD_
+  cat <<_EOD_  > ~vagrant/xstartup
 #!/usr/bin/bash
 xrdb \$HOME/.Xresources
-startrxfce4 &
+startxfce4 &
 _EOD_
-chmod +x ~vagran/xstartup
+chmod +x ~vagrant/xstartup
 }
 
 net_tools() {
@@ -71,3 +72,5 @@ net_tools() {
 resolve_dns
 #mariadb_server
 mysql_server
+vnc_server
+net_tools

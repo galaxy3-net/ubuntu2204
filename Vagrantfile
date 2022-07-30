@@ -6,6 +6,7 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	#config.vm.provider
 	config.vm.box = "generic/ubuntu2004"
+	config.vm.hostname="Ubuntu 20.04"
 
 	config.vm.define "ubuntu20.04" do |ubuntu|
 		ubuntu.vm.hostname = "ubuntu20.04"
@@ -14,4 +15,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	config.vm.provision "file", source: "./mysql_secure_install.sh", destination: "$HOME/mysql_secure_install.sh"
 
 	config.vm.provision:shell, path: "./bootstrap.sh"
+
+    config.vm.network "forwarded_port", guest: 5901, host: 29901, host_ip: "0.0.0.0", auto_correct: true
+    config.vm.network "forwarded_port", guest: 5902, host: 29902, host_ip: "0.0.0.0", auto_correct: true
+    config.vm.network "forwarded_port", guest: 5903, host: 29903, host_ip: "0.0.0.0", auto_correct: true
+    config.vm.network "forwarded_port", guest: 5904, host: 29904, host_ip: "0.0.0.0", auto_correct: true
 end

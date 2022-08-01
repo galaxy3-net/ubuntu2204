@@ -5,11 +5,11 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	#config.vm.provider
-	config.vm.box = "generic/ubuntu2004"
-	config.vm.hostname="Ubuntu 20.04"
+	config.vm.box = "generic/ubuntu2204"
+	config.vm.hostname="Ubuntu 22.04"
 
-	config.vm.define "ubuntu20.04" do |ubuntu|
-		ubuntu.vm.hostname = "ubuntu20.04"
+	config.vm.define "ubuntu22.04" do |ubuntu|
+		ubuntu.vm.hostname = "ubuntu22.04"
 	end
 
 	config.vm.provision "file", source: "./bin", destination: "$HOME/bin"

@@ -14,7 +14,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 	config.vm.provision "file", source: "./bin", destination: "$HOME/bin"
 
-	config.vm.provision:shell, path: "bin/bootstrap.sh"
+	#config.vm.provision:shell, path: "bin/bootstrap.sh"
 
     config.vm.network "forwarded_port", guest: 5901, host: 29901, host_ip: "0.0.0.0", auto_correct: true
     config.vm.network "forwarded_port", guest: 5902, host: 29902, host_ip: "0.0.0.0", auto_correct: true

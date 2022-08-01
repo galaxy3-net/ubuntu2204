@@ -5,7 +5,7 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	#config.vm.provider
-	config.vm.box = "bento/ubuntu-22.04"
+	config.vm.box = "ubuntu/focal64"
 	config.vm.hostname="Ubuntu 22.04"
 
 	config.vm.define "ubuntu22.04" do |ubuntu|

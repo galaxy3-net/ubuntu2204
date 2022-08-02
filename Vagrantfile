@@ -12,15 +12,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 		ubuntu.vm.hostname = "ubuntu22.04"
 	end
 
-    config.vm.provider :virtualbox do |vb|
-    	config.vm.disk :dvd, name: "installer", file: "C:\Program Files\Oracle\VirtualBox\VBoxGuestAdditions.iso"
-    end
+    #config.vm.provider :virtualbox do |vb|
+    #	config.vm.disk :dvd, name: "installer", file: "C:\Program Files\Oracle\VirtualBox\VBoxGuestAdditions.iso"
+    #end
 
 	config.vm.provision "file", source: "./bin", destination: "$HOME/bin"
 	#config.vm.provision "file", source: "C:\Program Files\Oracle\VirtualBox\VBoxGuestAdditions.iso"
 
 
-	#config.vm.provision:shell, path: "bin/bootstrap.sh"
+	config.vm.provision:shell, path: "bin/bootstrap.sh"
     config.vm.synced_folder "~/Downloads", "/Downloads", owner: "1001", group: "1001", mount_options: ["fmode=777", "dmode=777"], create: true
 
     config.vm.network "forwarded_port", guest: 5901, host: 29901, host_ip: "0.0.0.0", auto_correct: true

@@ -1,0 +1,9 @@
+---
+- hosts: all
+  vars:
+    hostname: "ucibox"
+  tasks:
+    - name: Make sure the current version of ‘sysstat’ is installed.
+      dnf:
+        name: sysstat
+        state: latest

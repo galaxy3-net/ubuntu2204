@@ -12,8 +12,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 		ubuntu.vm.hostname = "ubuntu22.04"
 	end
 
+    config.vm.provider :virtualbox do |vb|
+    	config.vm.disk :dvd, name: "installer", file: "C:\Program Files\Oracle\VirtualBox\VBoxGuestAdditions.iso"
+    end
+
 	config.vm.provision "file", source: "./bin", destination: "$HOME/bin"
-	config.vm.provision "file", source: "C:\Program Files\Oracle\VirtualBox\VBoxGuestAdditions.iso"
+	#config.vm.provision "file", source: "C:\Program Files\Oracle\VirtualBox\VBoxGuestAdditions.iso"
 
 
 	#config.vm.provision:shell, path: "bin/bootstrap.sh"

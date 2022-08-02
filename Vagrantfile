@@ -13,7 +13,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	end
 
 	config.vm.provision "file", source: "./bin", destination: "$HOME/bin"
-	config.vm.provision "file", source: "/c/Program Files/Oracle/VirtualBox/VBoxGuestAdditions.iso"
+	config.vm.provision "file", source: "C:\Program Files\Oracle\VirtualBox\VBoxGuestAdditions.iso"
 
 	#config.vm.provision:shell, path: "bin/bootstrap.sh"
 

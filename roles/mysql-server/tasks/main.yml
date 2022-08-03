@@ -2,7 +2,7 @@
 
     - name: Make sure the current version of ‘mysql-server’ is installed.
       apt:
-        name: {{ item }}
+        name: "{{ item }}"
         state: latest
       with_items:
         - mysql-server

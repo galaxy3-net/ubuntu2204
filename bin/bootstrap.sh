@@ -76,7 +76,7 @@ python3_dnf() {
 }
 
 
-resolve_dns
+#resolve_dns
 #mariadb_server
 #mysql_server
 #vnc_server

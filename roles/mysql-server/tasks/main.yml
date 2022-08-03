@@ -1,9 +1,12 @@
 ---
 
-    - name: Make sure the current version of ‘sysstat’ is installed.
+    - name: Make sure the current version of ‘mysql-server’ is installed.
       apt:
-        name: mysql-server
+        name: {{ item }}
         state: latest
+      with_items:
+        - mysql-server
+        - mysql-client
 
 
     - name: Update /etc/mysql/mysql.conf.d/mysqld.cnf
@@ -11,3 +14,12 @@
         src: files/mysqld.cnf
         dest: /etc/mysql/mysql.conf.d/mysqld.cnf
 
+    - name: Restart mysqld service
+      ansible.builtin.service:
+        name: mysql
+        state: restarted
+
+    - name: MySQL Workbench
+      community.general.snap:
+        name:
+          - mysql-workbench-community

@@ -7,6 +7,7 @@
       with_items:
         - mysql-server
         - mysql-client
+        - python3-pymysql
 
 
     - name: Update /etc/mysql/mysql.conf.d/mysqld.cnf
@@ -23,3 +24,12 @@
       community.general.snap:
         name:
           - mysql-workbench-community
+
+    - name: Setup MySQL Root Account
+      mysql_user:
+        login_host: 'localhost'
+        login_user: 'root'
+        login_password: 'uci2020'
+        name: 'root'
+        password: 'uci2020'
+        state: present

@@ -8,8 +8,3 @@
       dnf:
         name: mysql-server
         state: latest
-
-    - name: Start service MySQLd
-        service.service:
-          name: mysqld
-          state: restarted

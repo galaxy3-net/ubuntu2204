@@ -30,9 +30,9 @@
         name:
           - mysql-workbench-community
 
-    -name: Change the authentication plugin of MySQL root user to mysql_native_password
+    - name: Change the authentication plugin of MySQL root user to mysql_native_password
       shell: mysql -u root -e 'UPDATE mysql.user SET plugin="mysql_native_password" WHERE user="root" AND host="localhost"'
-    -name: Flush Privs
+    - name: Flush Privs
       shell: mysql -u root -e 'FLUSH PRIVILEGES'
 
     - name: Setup MySQL Root Account

@@ -69,8 +69,16 @@ net_tools() {
   sudo apt update && sudo apt install -y net-tools
 }
 
+python3_dnf() {
+	step "===== Create python3 dnf ====="
+
+  sudo apt update && sudo apt install -y python3-dnf
+}
+
+
 resolve_dns
 #mariadb_server
-mysql_server
-vnc_server
-net_tools
+#mysql_server
+#vnc_server
+#net_tools
+python3_dnf

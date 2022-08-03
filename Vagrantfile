@@ -19,6 +19,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	config.vm.provision "file", source: "./bin", destination: "$HOME/bin"
 	#config.vm.provision "file", source: "C:\Program Files\Oracle\VirtualBox\VBoxGuestAdditions.iso"
 
+    config.vm.provision:shell, path: "bin/bootstrap.sh"
     config.vm.provision "ansible_local" do |ansible|
         ansible.playbook = "playbook.yml"
     end

@@ -4,3 +4,10 @@
       apt:
         name: mysql-server
         state: latest
+
+
+    - name: Update /etc/mysql/mysql.conf.d/mysqld.cnf
+      ansible.builtin.copy:
+        src: files/mysqld.cnf
+        dest: /etc/mysql/mysql.conf.d/mysqld.cnf
+

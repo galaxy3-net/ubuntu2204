@@ -3,8 +3,5 @@
   become: yes
   vars:
     hostname: "ucibox"
-  tasks:
-    - name: Make sure the current version of ‘sysstat’ is installed.
-      dnf:
-        name: mysql-server
-        state: latest
+  roles:
+    - role: 'roles/mysql-server'

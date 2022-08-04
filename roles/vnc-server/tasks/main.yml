@@ -29,7 +29,7 @@
 
     - name: Update set_vnc_passwd.sh
       ansible.builtin.copy:
-        src: files/set_vnc_passwd.sh
+        src: files/set_vnc_password.sh
         dest: /home/vagrant/.vnc/set_vnc_password.sh
         group: vagrant
         owner: vagrant

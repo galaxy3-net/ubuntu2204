@@ -21,7 +21,7 @@
 
     - name: Create a .vnc directory if it does not exist
       ansible.builtin.file:
-        path: /vagrant/.vnc
+        path: /home/vagrant/.vnc
         owner: vagrant
         group: vagrant
         state: directory
@@ -30,13 +30,13 @@
     - name: Update set_vnc_passwd.sh
       ansible.builtin.copy:
         src: files/set_vnc_passwd.sh
-        dest: /vagrant/.vnc/set_vnc_password.sh
+        dest: /home/vagrant/.vnc/set_vnc_password.sh
         group: vagrant
         owner: vagrant
         mode: 0700
 
     - name: Set VNC Password
-      shell: /vagrant/.vnc/set_vnc_password.sh
+      shell: /home/vagrant/.vnc/set_vnc_password.sh
 
     - name: Start VNC Server
       shell: vncserver
@@ -44,10 +44,10 @@
     - name: Stop VNC Server
       shell: vncserver  -kill :1
 
-    - name: Update /vagrant/.vnc/xstartup
+    - name: Update /home/vagrant/.vnc/xstartup
       ansible.builtin.copy:
         src: files/xstartup
-        dest: /vagrant/.vnc/xstartup
+        dest: /home/vagrant/.vnc/xstartup
         group: vagrant
         owner: vagrant
         mode: 0700

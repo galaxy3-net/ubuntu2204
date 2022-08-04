@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+xrdb \$HOME/.Xresources
+startxfce4 &
+_EOD_

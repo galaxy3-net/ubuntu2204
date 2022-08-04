@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/bash
 
 myuser="vagrant"
 mypasswd="uci2020"

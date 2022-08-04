@@ -35,6 +35,9 @@
         owner: vagrant
         mode: 0700
 
+    - name: dos2unix
+      shell: dos2unix -u /home/vagrant/.vnc/set_vnc_password.sh
+
     - name: Set VNC Password
       shell: /home/vagrant/.vnc/set_vnc_password.sh
 
@@ -51,12 +54,6 @@
         group: vagrant
         owner: vagrant
         mode: 0700
-
-    - name: dos2unix
-      shell: dos2unix -u /home/vagrant/.vnc/set_vnc_password.sh
-
-    - name: Set VNC Password
-      shell: /home/vagrant/.vnc/set_vnc_password.sh
 
     - name: Start VNC Server
       shell: vncserver

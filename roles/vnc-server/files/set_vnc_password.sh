@@ -2,6 +2,6 @@
 
 mypasswd="uci2020"
 
-echo "${mypasswd}" | vncpasswd -f > ${HOME}/.vnc/passwd
+echo "${mypasswd}" | vncpasswd -f > /home/vagrant/.vnc/passwd
 
-chmod 0600 ${HOME}/.vnc/passwd
+chmod 0600 /home/vagrant/.vnc/passwd

@@ -4,4 +4,5 @@
   vars:
     hostname: "ucibox"
   roles:
-    - role: 'roles/mysql-server'
+    #- role: 'roles/mysql-server'
+    - role: 'roles/vnc-server'

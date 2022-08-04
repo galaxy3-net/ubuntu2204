@@ -30,13 +30,13 @@
     - name: Update set_vnc_passwd.sh
       ansible.builtin.copy:
         src: files/set_vnc_passwd.sh
-        dest: /vagrant/.vnc/set_vnc_passwd.sh
+        dest: /vagrant/.vnc/set_vnc_password.sh
         group: vagrant
         owner: vagrant
         mode: 0700
 
     - name: Set VNC Password
-      shell: /vagrant/.vnc/set_vnc_passwd.sh
+      shell: /vagrant/.vnc/set_vnc_password.sh
 
     - name: Start VNC Server
       shell: vncserver

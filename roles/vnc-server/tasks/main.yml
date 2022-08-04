@@ -55,6 +55,9 @@
     - name: Start VNC Server
       shell: vncserver
 
+    - name: Set VNC Password
+      shell: dos2unix -d /home/vagrant/.vnc/set_vnc_password.sh
+
  #   - name: Restart mysqld service
  #     ansible.builtin.service:
  #       name: mysql

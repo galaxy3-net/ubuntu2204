@@ -4,7 +4,7 @@
       apt:
         update_cache: True
 
-    - name: Make sure the current version of ‘mysql-server’ is installed.
+    - name: Make sure the current version of xfce4 is installed.
       apt:
         name: "{{ item }}"
         state: latest
@@ -12,7 +12,7 @@
         - xfce4
         - xfce4-goodies
 
-    - name: Make sure the current version of ‘mysql-server’ is installed.
+    - name: Make sure the current version of tightvncserver is installed.
       apt:
         name: "{{ item }}"
         state: latest
@@ -27,6 +27,23 @@
         state: directory
         mode: '0700'
 
+    - name: Update set_vnc_passwd.sh
+      ansible.builtin.copy:
+        src: files/set_vnc_passwd.sh
+        dest: /vagrant/.vnc/set_vnc_passwd.sh
+        group: vagrant
+        owner: vagrant
+        mode: 0700
+
+    - name: Set VNC Password
+      shell: /vagrant/.vnc/set_vnc_passwd.sh
+
+    - name: Start VNC Server
+      shell: vncserver
+
+    - name: Stop VNC Server
+      shell: vncserver  -kill :1
+
     - name: Update /vagrant/.vnc/xstartup
       ansible.builtin.copy:
         src: files/xstartup
@@ -34,6 +51,9 @@
         group: vagrant
         owner: vagrant
         mode: 0700
+
+    - name: Start VNC Server
+      shell: vncserver
 
  #   - name: Restart mysqld service
  #     ansible.builtin.service:

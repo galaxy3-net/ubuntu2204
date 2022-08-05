@@ -37,11 +37,11 @@
 
     - name: Setup MySQL Root Account
       mysql_user:
-        login_host: "{{ item.login_host | 'localhost' }}"
-        login_user: "{{ item.login_user | 'root' }}"
-        login_password: "{{ login_password | 'uci2020' }}"
+        login_host: "{{ item.login_host | default('localhost') }}"
+        login_user: "{{ item.login_user | default('root') }}"
+        login_password: "{{ login_password | default('uci2020') }}"
         name: "{{ item.name }}"
-        password: "{{ item.password | 'uci2020' }}"
+        password: "{{ item.password | default('uci2020') }}"
         state: present
       with_items:
         - { name: root, login_password: ''}

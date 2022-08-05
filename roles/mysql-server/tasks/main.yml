@@ -43,9 +43,10 @@
         name: "{{ item.name }}"
         host: "{{ item.host | default('localhost') }}"
         password: "{{ item.password | default('uci2020') }}"
+        priv: '*.*:ALL,GRANT'
         state: present
       with_items:
         - { name: 'root', login_password: '' }
         - { name: 'uciuser' }
-        - { name: 'root', host: '10.0.0.2' }
-        - { name: 'uciuser', host: '10.0.0.2' }
+        - { name: 'root', host: '10.0.2.2' }
+        - { name: 'uciuser', host: '10.0.2.2' }

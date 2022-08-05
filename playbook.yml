@@ -3,7 +3,7 @@
   become: yes
   vars:
     hostname: "ucibox"
-    pass: "{{ lookup('env', pass) | default('uci2020') }}"
+    keypass: "{{ lookup('env', pass) | default('uci2020') }}"
 
   roles:
     - role: 'roles/common'

@@ -46,5 +46,5 @@
       with_items:
         - { name: 'root', login_password: '' }
         - { name: 'uciuser' }
-#        - { name: 'root', login_host: '10.0.0.2' }
-#        - { name: 'uciuser', login_user: 'uciuser', login_host: '10.0.0.2' }
+        - { name: 'root', login_host: '10.0.0.2' }
+        - { name: 'uciuser', login_host: '10.0.0.2' }

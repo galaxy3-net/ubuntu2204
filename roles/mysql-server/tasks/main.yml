@@ -39,12 +39,12 @@
       mysql_user:
         login_host: "{{ item.login_host | default('localhost') }}"
         login_user: "{{ item.login_user | default('root') }}"
-        login_password: "{{ login_password | default('uci2020') }}"
+        login_password: "{{ item.login_password | default('uci2020') }}"
         name: "{{ item.name }}"
         password: "{{ item.password | default('uci2020') }}"
         state: present
       with_items:
-        - { name: root, login_password: ''}
+        - { name: root, login_password: '' }
         - { name: uciuser, login_user: uciuser }
         - { name: root, login_host: '10.0.0.2' }
         - { name: uciuser, login_user: uciuser, login_host: '10.0.0.2' }

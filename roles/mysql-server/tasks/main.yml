@@ -12,7 +12,7 @@
         - mysql-server
         - mysql-client
         - python3-pymysql
-
+        - gnome-keyring
 
     - name: Update /etc/mysql/mysql.conf.d/mysqld.cnf
       ansible.builtin.copy:
@@ -28,7 +28,6 @@
     - name: MySQL Workbench
       community.general.snap:
         name:
-          - gnome-keyring
           - mysql-workbench-community
 
     - name: Change the authentication plugin of MySQL root user to mysql_native_password

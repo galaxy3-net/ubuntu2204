@@ -28,6 +28,7 @@
     - name: MySQL Workbench
       community.general.snap:
         name:
+          - gnome-keyring
           - mysql-workbench-community
 
     - name: Change the authentication plugin of MySQL root user to mysql_native_password

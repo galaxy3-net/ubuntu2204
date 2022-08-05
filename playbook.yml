@@ -3,6 +3,8 @@
   become: yes
   vars:
     hostname: "ucibox"
+  facts:
+
   roles:
     - role: 'roles/common'
     - role: 'roles/mysql-server'

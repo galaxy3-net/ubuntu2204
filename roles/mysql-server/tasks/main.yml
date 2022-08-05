@@ -33,7 +33,7 @@
     - name: Change the authentication plugin of MySQL root user to mysql_native_password
       shell: mysql -u root -e 'UPDATE mysql.user SET plugin="mysql_native_password" WHERE user="root" AND host="localhost"'
     - name: Flush Privs
-      shell: mysql -u root -e 'FLUSH PRIVILEGES'
+      shell: "{{ item }}"
       with_items:
         - mysql -u root -e 'FLUSH PRIVILEGES'
         - sudo snap connect mysql-workbench-community:password-manager-service :password-manager-service
@@ -56,8 +56,11 @@
         - { name: 'root', host: '10.0.2.2' }
         - { name: 'uciuser', host: '10.0.2.2' }
 
-    - name: Restart mysqld service
-      ansible.builtin.service:
-        name: mysql
-        enabled: True
-        state: restarted
+#    - name: Restart mysqld service
+#      ansible.builtin.service:
+#        name: mysql
+#        enabled: True
+#        state: restarted
+
+  - name: Wait for system to finish rebooting.
+    reboot:

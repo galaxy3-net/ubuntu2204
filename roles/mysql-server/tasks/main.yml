@@ -44,10 +44,10 @@
       mysql_user:
         login_host: 'localhost'
         login_user: 'root'
-        login_password: "{{ item.login_password | default('uci2020') }}"
+        login_password: "{{ item.login_password | default(keypass) }}"
         name: "{{ item.name }}"
         host: "{{ item.host | default('localhost') }}"
-        password: "{{ item.password | default('uci2020') }}"
+        password: "{{ item.password | default(keypass) }}"
         #priv: "*.*:ALL,GRANT"
         state: present
       with_items:
@@ -56,11 +56,8 @@
         - { name: 'root', host: '10.0.2.2' }
         - { name: 'uciuser', host: '10.0.2.2' }
 
-#    - name: Restart mysqld service
-#      ansible.builtin.service:
-#        name: mysql
-#        enabled: True
-#        state: restarted
-
-    - name: Wait for system to finish rebooting.
-      ansible.builtin.reboot:
+    - name: Restart mysqld service
+      ansible.builtin.service:
+        name: mysql
+        enabled: True
+        state: restarted

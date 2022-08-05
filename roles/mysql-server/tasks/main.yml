@@ -62,5 +62,5 @@
 #        enabled: True
 #        state: restarted
 
-  - name: Wait for system to finish rebooting.
-    reboot:
+    - name: Wait for system to finish rebooting.
+      ansible.builtin.reboot:

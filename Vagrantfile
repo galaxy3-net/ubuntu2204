@@ -24,7 +24,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         ansible.playbook = "playbook.yml"
     end
 
-    config.vm.provision :reload
+    config.vm.provision :reboot
 
 	#config.vm.provision:shell, path: "bin/bootstrap.sh"
     config.vm.synced_folder "~/Downloads", "/Downloads", owner: "1001", group: "1001", mount_options: ["fmode=777", "dmode=777"], create: true

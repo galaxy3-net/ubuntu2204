@@ -34,7 +34,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.network "forwarded_port", guest: 5903, host: 29903, host_ip: "0.0.0.0", auto_correct: true
     config.vm.network "forwarded_port", guest: 5904, host: 29904, host_ip: "0.0.0.0", auto_correct: true
     config.vm.network "forwarded_port", guest: 3306, host: 3307, host_ip: "0.0.0.0", auto_correct: true
-end
+
 
     config.vm.provider "virtualbox" do |vb|
         # Display the VirtualBox GUI when booting the machine
@@ -52,3 +52,5 @@ end
         vb.customize ['modifyvm', :id, '--vram', '128']
         vb.customize ['modifyvm', :id, '--graphicscontroller', 'vboxsvga']
     end
+
+end

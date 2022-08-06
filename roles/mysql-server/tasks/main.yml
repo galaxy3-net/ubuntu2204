@@ -69,5 +69,5 @@
         login_password: "{{ item.login_password | default(keypass) }}"
         query:
           - GRANT ALL PRIVILEGES ON *.* TO 'root'@'10.0.2.2' WITH GRANT OPTION
-          #- 'GRANT ALL PRIVILEGES ON *.* TO 'uciuser'@'localhost' WITH GRANT OPTION'
-          #- 'GRANT ALL PRIVILEGES ON *.* TO 'uciuser'@'10.0.2.2' WITH GRANT OPTION'
+          - GRANT ALL PRIVILEGES ON *.* TO 'uciuser'@'localhost' WITH GRANT OPTION
+          - GRANT ALL PRIVILEGES ON *.* TO 'uciuser'@'10.0.2.2' WITH GRANT OPTION

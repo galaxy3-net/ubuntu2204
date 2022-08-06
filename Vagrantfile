@@ -24,6 +24,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         ansible.playbook = "playbook.yml"
     end
 
+    config.vm.provision :reload
+
 	#config.vm.provision:shell, path: "bin/bootstrap.sh"
     config.vm.synced_folder "~/Downloads", "/Downloads", owner: "1001", group: "1001", mount_options: ["fmode=777", "dmode=777"], create: true
 
@@ -33,3 +35,20 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.network "forwarded_port", guest: 5904, host: 29904, host_ip: "0.0.0.0", auto_correct: true
     config.vm.network "forwarded_port", guest: 3306, host: 3307, host_ip: "0.0.0.0", auto_correct: true
 end
+
+    config.vm.provider "virtualbox" do |vb|
+        # Display the VirtualBox GUI when booting the machine
+        # Uncomment ONE the lines below to control how much RAM Vagrant gives the VM
+        # We recommend starting with 4096 (4Gb), and moving down if necessary
+        # vb.memory = "1024" # 1Gb
+        # vb.memory = "2048" # 2Gb
+        # vb.memory = "4096" # 4Gb
+        vb.name = "Farber (ubuntu2204)"
+        vb.gui = false
+        vb.cpus = "8"
+        vb.memory = "8192"
+        #vb.customize ["modifyvm", :id, "--description", File.read("Description")]
+        vb.customize ['modifyvm', :id, '--vrde', 'off']
+        vb.customize ['modifyvm', :id, '--vram', '128']
+        vb.customize ['modifyvm', :id, '--graphicscontroller', 'vboxsvga']
+    end

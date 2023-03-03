@@ -10,3 +10,4 @@
     state: latest
   with_items:
     - net-tools
+    - python3-pip

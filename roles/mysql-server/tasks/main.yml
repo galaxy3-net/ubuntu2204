@@ -12,6 +12,7 @@
         - mysql-server
         - mysql-client
         - python3-pymysql
+        - python3-mysqldb
         - gnome-keyring
 
     - name: Update /etc/mysql/mysql.conf.d/mysqld.cnf

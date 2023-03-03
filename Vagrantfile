@@ -28,7 +28,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 	#config.vm.provision:shell, path: "bin/bootstrap.sh"
 	config.vm.provision:shell, inline: "cd / && sudo git clone https://github.com/galaxy3-net/testscripts.git && sudo chown -R vagrant:vagrant /testscripts/"
-    config.vm.provision:shell, inline: "nohup bash /testscripts/bin/ansible.sh &"
+    config.vm.provision:shell, inline: "ln -s /testscripts/bin/ansible.sh /etc/rc3.d/S02ansible && chmod +x /etc/rc3.d/S02ansible"
 
 #	config.vm.provision:shell, inline: "apt-get update && apt-get upgrade -y && sudo apt-get install -y ansible"
 #	config.vm.provision:shell, inline: "wget -O ~/.profile https://raw.githubusercontent.com/galaxy3-net/testscripts/main/.profile"

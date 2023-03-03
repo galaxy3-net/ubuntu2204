@@ -27,9 +27,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # config.vm.provision :reboot
 
 	#config.vm.provision:shell, path: "bin/bootstrap.sh"
-	config.vm.provision:shell, inline: "apt-get update && apt-get upgrade -y && sudo apt-get install -y ansible"
-	config.vm.provision:shell, inline: "wget -O ~/.profile https://raw.githubusercontent.com/galaxy3-net/testscripts/main/.profile"
-	config.vm.provision:shell, inline: "wget -O ~vagrant/.profile https://raw.githubusercontent.com/galaxy3-net/testscripts/main/.profile"
+	config.vm.provision:shell, inline: "cd / && sudo git clone https://github.com/galaxy3-net/testscripts.git && sudo chown -R vagrant:vagrant /testscripts/"
+#	config.vm.provision:shell, inline: "apt-get update && apt-get upgrade -y && sudo apt-get install -y ansible"
+#	config.vm.provision:shell, inline: "wget -O ~/.profile https://raw.githubusercontent.com/galaxy3-net/testscripts/main/.profile"
+#	config.vm.provision:shell, inline: "wget -O ~vagrant/.profile https://raw.githubusercontent.com/galaxy3-net/testscripts/main/.profile"
     config.vm.synced_folder "~/Downloads", "/Downloads", owner: "1001", group: "1001", mount_options: ["fmode=777", "dmode=777"], create: true
 
     config.vm.network "forwarded_port", guest: 5901, host: 29901, host_ip: "0.0.0.0", auto_correct: true

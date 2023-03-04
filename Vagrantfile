@@ -29,6 +29,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	#config.vm.provision:shell, path: "bin/bootstrap.sh"
 	config.vm.provision:shell, inline: "cd / && sudo git clone https://github.com/galaxy3-net/testscripts.git && sudo chown -R vagrant:vagrant /testscripts/"
     config.vm.provision:shell, inline: "cp /testscripts/bin/ansible.sh /usr/local/bin/. && chmod +x /usr/local/bin/ansible.sh && (crontab -l ; echo \"@reboot test -x /usr/local/bin/ansible.sh && /usr/local/bin/ansible.sh\")| crontab"
+    config.vm.provision:shell, inline: "cp /testscripts/bin/vncserver /usr/local/bin/. && chmod +x /usr/local/bin/vncserver"
     config.vm.provision:shell, inline: "cp /testscripts/etc/motd.1 /etc/motd"
 
 #	config.vm.provision:shell, inline: "apt-get update && apt-get upgrade -y && sudo apt-get install -y ansible"
